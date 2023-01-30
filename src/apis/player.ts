@@ -6,6 +6,7 @@ const player_router = express.Router();
 player_router.post("/signin",async (req: Request, res: Response) : Promise<Response> => {
     let player_infor = req.body;
     const player: Player = await Player.create({...player_infor});
+    //Need try catch in case user existed??
     return res.status(201).json({
         player
     });
@@ -14,6 +15,7 @@ player_router.post("/signin",async (req: Request, res: Response) : Promise<Respo
 player_router.post("/login", async (req: Request, res: Response): Promise<Response> => {
     const user = req.body;
     console.log(user);
+
     return res.status(201).json(user);
   });
 
