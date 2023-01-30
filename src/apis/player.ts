@@ -1,12 +1,12 @@
 import express, {Request, Response} from "express";
 import { Player } from "../models/Player";
+import { is_duplicated_user } from "../middlewares/utils";
 
 const player_router = express.Router();
 
-player_router.post("/signin",async (req: Request, res: Response) : Promise<Response> => {
+player_router.post("/signin",is_duplicated_user, async (req: Request, res: Response) : Promise<Response> => {
     let player_infor = req.body;
     const player: Player = await Player.create({...player_infor});
-    //Need try catch in case user existed??
     return res.status(201).json({
         player
     });
