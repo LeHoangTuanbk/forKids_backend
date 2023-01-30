@@ -5,12 +5,10 @@ const player_router = express.Router();
 
 player_router.post("/signin",async (req: Request, res: Response) : Promise<Response> => {
     let player_infor = req.body;
-    console.log(player_infor);
     const player: Player = await Player.create({...player_infor});
     return res.status(201).json({
         player
     });
-    // return res.status(200);
 })
 
 player_router.post("/login", async (req: Request, res: Response): Promise<Response> => {

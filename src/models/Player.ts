@@ -9,7 +9,6 @@ class Player extends Model {
     @Column({
         type: DataType.UUID,
         allowNull: false,
-        // autoIncrement: true,
         primaryKey: true,
         defaultValue: randomUUID
     })
