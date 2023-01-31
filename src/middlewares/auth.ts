@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import jwt, { Secret, JwtPayload, Algorithm  } from 'jsonwebtoken';
+import jwt, { Secret } from 'jsonwebtoken';
 import {Player} from '../models/Player';
 
 const verify_user = async (req : Request,res : Response, next: NextFunction) =>{
@@ -24,7 +24,3 @@ const verify_user = async (req : Request,res : Response, next: NextFunction) =>{
 }
 
 export {verify_user};
-
-/*
-eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfbmFtZSI6InR1YW5saCIsInBhc3N3b3JkIjoidHVhbmxoIn0sImlhdCI6MTY3NTE1MzgyMSwiZXhwIjoxNjc3NzQ1ODIxfQ.ITY5KzewsuIDK7lQNRXUn0ARbOrToU31BBd_z05H0h87F5extkI-fyBGlxjIjMhpoyOTcxo3SjJ-Uyrp4KwmsA
-*/

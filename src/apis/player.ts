@@ -8,7 +8,7 @@ const player_router = express.Router();
 
 player_router.post("/signin",is_duplicated_user, async (req: Request, res: Response) : Promise<Response> => {
     let player_infor = req.body;
-    const player: Player = await Player.create({...player_infor});
+    const player: Player | null = await Player.create({...player_infor});
     return res.status(201).json({
         player
     });
@@ -16,7 +16,7 @@ player_router.post("/signin",is_duplicated_user, async (req: Request, res: Respo
 
 player_router.post("/login", async (req: Request, res: Response): Promise<Response> => {
     const {user_name, password} = req.body;
-    const player = await Player.findOne({
+    const player : Player | null = await Player.findOne({
         where: {
         user_name,
         password
