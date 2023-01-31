@@ -43,7 +43,8 @@ player_router.post("/login", async (req: Request, res: Response): Promise<Respon
   });
 
 player_router.post("/update_points", verify_user, async (req: Request, res: Response): Promise<Response> => {
-    return res.send("Will be implemented later!");
+    let user_name : string = req.body.user_name;
+    return res.send(user_name);
 });
 
 //These apis are for admin to manage to the system.
