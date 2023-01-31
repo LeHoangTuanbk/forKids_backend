@@ -1,6 +1,7 @@
 import express, {Request, Response} from "express";
 import { Player } from "../models/Player";
 import { is_duplicated_user } from "../middlewares/utils";
+import { verify_user } from "../middlewares/auth";
 import jwt, { Secret, JwtPayload, Algorithm  } from 'jsonwebtoken';
 
 const player_router = express.Router();
@@ -41,7 +42,7 @@ player_router.post("/login", async (req: Request, res: Response): Promise<Respon
     return res.status(404).send("Username or password is not correct!");
   });
 
-player_router.post("/update_points",async (req: Request, res: Response): Promise<Response> => {
+player_router.post("/update_points", verify_user, async (req: Request, res: Response): Promise<Response> => {
     return res.send("Will be implemented later!");
 });
 

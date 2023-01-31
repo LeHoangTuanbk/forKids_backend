@@ -1,5 +1,4 @@
 import { Player } from "../models/Player";
-
 import connection from "../connection/connection";
 
 const refresh_seed = async(): Promise<void> => {
