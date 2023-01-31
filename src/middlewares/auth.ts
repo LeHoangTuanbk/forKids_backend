@@ -11,7 +11,7 @@ const verify_user = async (req : Request,res : Response, next: NextFunction) =>{
     const SECRET_KEY: Secret = process.env.JWT_PRIVATE_KEY as string;
     const payload = await jwt.verify(token,SECRET_KEY);
     const { data } : any = payload;
-    const player = await Player.findOne({
+    const player : Player | null = await Player.findOne({
         where : data
     })
 
