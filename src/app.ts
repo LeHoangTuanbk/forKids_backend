@@ -17,7 +17,7 @@ const start = async (): Promise<void> => {
     try {
       await connection.authenticate();
       app.listen(3000, () => {
-        console.log(`Server started on localhost:${PORT} 3000`);
+        console.log(`Server started on localhost:${PORT}`);
       });
     } catch (error) {
       console.error(error);
