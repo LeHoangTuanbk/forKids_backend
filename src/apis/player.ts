@@ -36,7 +36,7 @@ player_router.post("/login", async (req: Request, res: Response): Promise<Respon
             expiresIn: process.env.JWT_EXPIRE_DAYS,
             algorithm: process.env.JWT_HASH_ALGORITHM as Algorithm,
         } )
-        res.send({token:token })
+        return res.send({token:token })
     }
 
     return res.status(404).send("Username or password is not correct!");
@@ -44,6 +44,7 @@ player_router.post("/login", async (req: Request, res: Response): Promise<Respon
 
 player_router.post("/update_points", verify_user, async (req: Request, res: Response): Promise<Response> => {
     let user_name : string = req.body.user_name;
+    //Will be implemented later!
     return res.send(user_name);
 });
 

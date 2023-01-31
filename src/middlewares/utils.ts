@@ -12,7 +12,7 @@ const is_duplicated_user =async (req : Request,res : Response, next: NextFunctio
     })
     if(user)
     {
-        return res.status(409).send({message: "username existed"});
+        return res.status(409).send({message: "Username existed"});
     }
     next();
 }

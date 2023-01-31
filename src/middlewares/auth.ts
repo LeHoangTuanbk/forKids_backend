@@ -15,8 +15,6 @@ const verify_user = async (req : Request,res : Response, next: NextFunction) =>{
         where : data
     })
 
-    console.log(player?.user_name);
-
     if (player !== null)
     {
         req.body.user_name = player.user_name;

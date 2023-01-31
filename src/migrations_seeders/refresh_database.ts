@@ -3,9 +3,10 @@ import connection from "../connection/connection";
 
 const refresh_seed = async(): Promise<void> => {
     await connection.drop();
-    console.log("All tables dropped!");
+    console.log("All tables are dropped!");
     
     await connection.sync();
+    console.log("All tables are created!")
     
     let dummy_data = [
         {
