@@ -1,0 +1,22 @@
+version: '2.13'
+services:
+  postgresql:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD : root
+      POSTGRES_DB : forKids
+      POSTGRES_USER : forKids
+    volumes:
+      - "./data/postgres:/var/lib/postgresql/data"
+
+  adminer:
+    image : adminer
+    container_name: adminer-docker
+    depends_on:
+      - postgresql 
+    ports:
+      - "8080:8080"
+    restart : on-failure
+
